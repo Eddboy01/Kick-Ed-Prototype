@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao|Montserrat&display=swap");
+
+$overlay-color: #3c4245;
+$primary-font-color: #070707;
+$light-text-color: #fff;
+$mobile: 600px;
+$tablet: 800px;
+$desktop: 1040px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+header {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-image: url("../img/air-jordan-fashion-feet-2065695.jpg");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+
+  .header-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: $overlay-color;
+    z-index: 1;
+    opacity: 0.7;
+  }
+  .open-nav-btn {
+    position: fixed;
+    text-decoration: none;
+    color: $primary-font-color;
+    top: 20px;
+    left: 30px;
+    z-index: 3;
+    display: none;
+    @include tablet {
+      display: block;
+    }
+  }
+  .side-nav {
+    position: fixed;
+    left: -200px;
+    height: 100%;
+    width: 200px;
+    z-index: 4;
+    background-color: #333;
+    transition: all 0.5s ease-in-out;
+    .close-nav-btn {
+      text-decoration: none;
+      font-size: 1.4rem;
+      position: absolute;
+      right: 16px;
+      top: 14px;
+      color: #fff;
+    }
+    li {
+      padding: 10px;
+      color: $primary-font-color;
+      font-size: 1.2rem;
+      border-bottom: 1px solid #fff;
+      font-family: "Montserrat", sans-serif;
+    }
+  }
+  .active {
+    left: 0;
+  }
+  .container {
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    h1 {
+      font-size: 3rem;
+      color: $primary-font-color;
+      @include mobile {
+        font-size: 2.5rem;
+      }
+    }
+    p {
+      font-size: 1.8rem;
+      font-family: "Liu Jian Mao Cao", cursive;
+      font-weight: 600;
+      margin: 10px 0;
+      @include mobile {
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+    }
+    .header-btn {
+      padding: 0.8rem 30px;
+      background-color: $overlay-color;
+
+      border: 1px solid rgba($color: $overlay-color, $alpha: 0.6);
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  }
+}
+#about-section {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  color: $overlay-color;
+  h1 {
+    font-size: 2.2rem;
+  }
+  .about-section-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #070707;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+    z-index: -1;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    .mission-box {
+      padding: 1rem;
+      font-weight: 700;
+      text-align: center;
+
+      @include tablet {
+        margin-top: 1rem;
+      }
+      i {
+        margin-top: 15px;
+      }
+      span {
+        color: $overlay-color;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+footer {
+  padding: 1rem;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
